@@ -1,22 +1,24 @@
 # Homebrew Cask template for Prettify (macOS desktop app).
 #
-# This is the SOURCE OF TRUTH. CI (release.yml -> bump-homebrew) renders it by
-# substituting 0.1.0 / c30e59173f04dfc3edaf7a5fae22084e9383a24b4b26801e14e7dcf66afa198e / 6de7f886bb59b77ff2c5a77573ffd5859fbcf88d3a4a8cd0ef7fab19ef8ba8d9 and writes the result to
+# This is the SOURCE OF TRUTH. CI (release.yml -> bump-homebrew) fills in the
+# version and the two per-arch SHA-256 placeholders, then writes the result to
 # Casks/prettify.rb in the public tap repo (alexitaylor/homebrew-tap).
+# (The placeholder tokens are intentionally not spelled out in this comment so
+# the sed substitution can't mangle it.)
 #
 # Users install with:
 #   brew install --cask alexitaylor/tap/prettify
 #
 # The app is signed + notarized, so it installs without quarantine prompts.
 cask "prettify" do
-  version "0.1.0"
+  version "0.2.0"
 
   on_arm do
-    sha256 "c30e59173f04dfc3edaf7a5fae22084e9383a24b4b26801e14e7dcf66afa198e"
+    sha256 "e749f25bcd4f0c9bd2035cf0a8e45f9217b8a5723bf9dfd7e6be0da8a87374fe"
     url "https://github.com/alexitaylor/prettify-releases/releases/download/v#{version}/Prettify_#{version}_aarch64.dmg"
   end
   on_intel do
-    sha256 "6de7f886bb59b77ff2c5a77573ffd5859fbcf88d3a4a8cd0ef7fab19ef8ba8d9"
+    sha256 "21a2719d9a346666375baf79012b65d88086e209033d1ba0bde3fded773b2380"
     url "https://github.com/alexitaylor/prettify-releases/releases/download/v#{version}/Prettify_#{version}_x64.dmg"
   end
 

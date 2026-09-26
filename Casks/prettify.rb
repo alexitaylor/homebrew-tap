@@ -11,14 +11,14 @@
 #
 # The app is signed + notarized, so it installs without quarantine prompts.
 cask "prettify" do
-  version "0.8.0"
+  version "0.9.0"
 
   on_arm do
-    sha256 "cc206e3ad4e0ec68fb57ded6657b5d01e9e854ae45dbbb688d1a83c164ae2c83"
+    sha256 "cf716eeabf3fed77cbce6049f46293692ba74103a16af50a686e53039adea3f5"
     url "https://github.com/alexitaylor/prettify-releases/releases/download/v#{version}/Prettify_#{version}_aarch64.dmg"
   end
   on_intel do
-    sha256 "5921ae38c8bc4b6f503fab8480b3b675e087d9950bf816607e5d8199a2395ca4"
+    sha256 "7c304e1f68b28eeb68020bf768d76e77dab70a1b7bec91e6d906df4f8160f5d6"
     url "https://github.com/alexitaylor/prettify-releases/releases/download/v#{version}/Prettify_#{version}_x64.dmg"
   end
 
@@ -32,6 +32,9 @@ cask "prettify" do
   auto_updates true
 
   app "Prettify.app"
+
+  # Link the bundled CLI onto the PATH so `prettify` works from a terminal.
+  binary "#{appdir}/Prettify.app/Contents/Resources/bin/prettify"
 
   zap trash: [
     "~/Library/Application Support/com.bluesunrise.prettify",

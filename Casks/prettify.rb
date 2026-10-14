@@ -11,19 +11,19 @@
 #
 # The app is signed + notarized, so it installs without quarantine prompts.
 cask "prettify" do
-  version "0.12.0"
+  version "0.12.1"
 
   on_arm do
-    sha256 "6c9dc2c0a4046690bd17c2959b2500bf322170bb06d33ec9cd42c57dfb7229e9"
+    sha256 "e412eb73802b21aad3e587b22aaf0b84505d451a27e3488babfe0a795f817577"
     url "https://github.com/alexitaylor/prettify-releases/releases/download/v#{version}/Prettify_#{version}_aarch64.dmg"
   end
   on_intel do
-    sha256 "a5eabae0bb5822567818b5cbc95dc06a9293a88793497903a493529943c39713"
+    sha256 "9b75a1b9c9d38b068dbf711d487e49d467bd150c9a76f2c6ce0e738c8b494ad1"
     url "https://github.com/alexitaylor/prettify-releases/releases/download/v#{version}/Prettify_#{version}_x64.dmg"
   end
 
   name "Prettify"
-  desc "Multi-format data viewer and editor (JSON, YAML, CSV, XML, Mermaid)"
+  desc "Multi-format data viewer and editor (JSON, YAML, CSV, XML, Mermaid, Markdown, MDX)"
   homepage "https://prettify.app"
 
   # Prettify ships its own in-app updater, but brew-installed copies should let

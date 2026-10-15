@@ -11,14 +11,14 @@
 #
 # The app is signed + notarized, so it installs without quarantine prompts.
 cask "prettify" do
-  version "0.13.0"
+  version "0.14.0"
 
   on_arm do
-    sha256 "2a49666fdfa0cbf93e83ce2a724328d39b8f378a47506eab2f220c34eecd9989"
+    sha256 "754751ede4fe51789561524fadbfe7f003f36d9267380951b069ef0fefe8caee"
     url "https://github.com/alexitaylor/prettify-releases/releases/download/v#{version}/Prettify_#{version}_aarch64.dmg"
   end
   on_intel do
-    sha256 "d68a8681c396fb2696affa955b3390160817e01eeba0b92e902cd048f0acbb06"
+    sha256 "9296c54d79f5a6084b80c4556f0b8a252e59bafd744488fb41ca9516f61786e3"
     url "https://github.com/alexitaylor/prettify-releases/releases/download/v#{version}/Prettify_#{version}_x64.dmg"
   end
 

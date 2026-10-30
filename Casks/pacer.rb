@@ -10,21 +10,13 @@ cask "pacer" do
   url "https://github.com/alexitaylor/pacer-releases/releases/download/v#{version}/Pacer.zip"
   name "Pacer"
   desc "Autocomplete popover for the terminal"
-  homepage "https://pacer.sh"
+  homepage "https://pacer.sh/"
 
   depends_on arch: :arm64
-  depends_on macos: ">= :ventura"
+  depends_on macos: :ventura
 
   app "Pacer.app"
   binary "#{appdir}/Pacer.app/Contents/MacOS/pacer"
-
-  # `brew upgrade` swaps the bundle under the running app. Restart it only when it is
-  # running, so a first install does not start Pacer before `pacer setup`.
-  postflight do
-    system_command "/bin/sh",
-                   args: ["-c", 'pgrep -xq pacer-desktop && "$0" restart || true',
-                          "#{appdir}/Pacer.app/Contents/MacOS/pacer"]
-  end
 
   zap trash: [
     "~/Library/Application Support/pacer",
@@ -36,6 +28,8 @@ cask "pacer" do
   caveats <<~EOS
     Run `pacer setup` to add the zsh hooks and start Pacer. Then allow Pacer in
     System Settings > Privacy & Security > Accessibility, and open a new terminal tab.
+
+    After `brew upgrade --cask pacer`, run `pacer restart` to start the new version.
 
     Before `brew uninstall --cask pacer`, run `pacer uninstall` to remove the zsh hooks.
   EOS
